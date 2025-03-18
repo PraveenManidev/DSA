@@ -1,4 +1,4 @@
-'''
+
 #Number of occurances
 def number_of_occurences(array,query):
 
@@ -33,25 +33,26 @@ q = int(input())
 query = [(input().strip().lower()) for i in range(q)]
 ch_occurences(s,query)
 
-'''
+
 #Find the max and min occurances 
 def max_min_occurences(arr):
-    freq_arr = {}
+    freq_map = {}
 
     for num in arr:
-        freq_arr[num] = freq_arr.get(num,0)+1
+        freq_map[num] = freq_map.get(num,0) + 1
+    print(freq_map)
+    
+    max_element = max(freq_map.values())
+    min_element = min(freq_map.values())
 
-    print("Frequency Array",freq_arr)
+    most_frequency = [key for key, val in freq_map.items() if val== max_element]
+    least_frequency = [key for key, val in freq_map.items() if val== min_element]
 
-    max_freq = max(freq_arr.values())
-    min_freq = min(freq_arr.values())
+   
+    print("most",most_frequency)
+    print("least",least_frequency)
 
-    most_frequent = [key for key, val in freq_arr.items() if val == max_freq]
-    least_frequent = [key for key, val in freq_arr.items()if val == min_freq]
 
-    print('Most',most_frequent)
-    print('Least',least_frequent)
 
-arr = [10,5,10,5,15,5]
-
+arr = [1,2,1,2,5,115,115]
 max_min_occurences(arr)
